@@ -36,5 +36,30 @@ public class HRManagerService {
         System.out.println("*************************************************************");
         System.out.println("Question 3                                                  *");
         System.out.println("*************************************************************");
+        //Question 3
+        System.out.println("*************************************************************");
+        System.out.println("Question 3                                                  *");
+        System.out.println("*************************************************************");
+        List<EmployeesEntity> listEmployeesAccounting = employeeRepository.findEmployeesEntitiesByDepartmentId(11);
+        System.out.println("Employees in the Accounting Department:");
+        listEmployeesAccounting.forEach(emp-> System.out.println(emp.getFirstName() + " " + emp.getLastName()));
+        //Question 4
+        System.out.println("*************************************************************");
+        System.out.println("Question 4                                                  *");
+        System.out.println("*************************************************************");
+        List<EmployeesEntity> listEmployeesWithManager = employeeRepository.findEmployeesEntitiesByManagerId(108);
+        System.out.println("Employees With Manager 108:");
+        listEmployeesWithManager.forEach(emp -> System.out.println(emp.getFirstName() + " " + emp.getLastName()));
+        //Question 5
+        System.out.println("*************************************************************");
+        System.out.println("Question 5                                                  *");
+        System.out.println("*************************************************************");
+        List<DepartmentsEntity> listDeptByLocation = deptrepository.findDepartmentsEntitiesByLocationId(1700);
+        System.out.println("Departments with Location ID 1700:");
+        listDeptByLocation.forEach(dept-> System.out.println(dept.getDepartmentName()));
+        //Question 6
+        System.out.println("*************************************************************");
+        System.out.println("Question 6                                                  *");
+        System.out.println("*************************************************************");
     }
 }

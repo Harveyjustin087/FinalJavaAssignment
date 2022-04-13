@@ -1,5 +1,6 @@
 package Service;
 
+import Model.DepartmentsEntity;
 import Model.EmployeesEntity;
 import Repository.DepartmentRepository;
 import Repository.EmployeeRepository;
@@ -61,5 +62,22 @@ public class HRManagerService {
         System.out.println("*************************************************************");
         System.out.println("Question 6                                                  *");
         System.out.println("*************************************************************");
+        List<Object[]> listCountriesByCountryId = deptrepository.getCountryCount();
+        System.out.println("Number of cities per country:");
+        listCountriesByCountryId.forEach(count-> System.out.println(count[0] + " " + count[1]));
+        //Question 7
+        System.out.println("*************************************************************");
+        System.out.println("Question 7                                                  *");
+        System.out.println("*************************************************************");
+        List<Object[]> departmentLocations = deptrepository.getDepartmentLocation();
+        System.out.println("Department Location Info:");
+        departmentLocations.forEach(dept-> System.out.println(dept[0] + " " + dept[1] + " " + dept[2]));
+        //Question 8
+        System.out.println("*************************************************************");
+        System.out.println("Question 8                                                  *");
+        System.out.println("*************************************************************");
+        List<Object[]> empInToronto = employeeRepository.employeesWorkInToronto("Toronto");
+        System.out.println("Employees Working In Toronto:");
+        empInToronto.forEach(emp-> System.out.println(emp[0] + " " + emp[1] + " " + emp[2]));
     }
 }

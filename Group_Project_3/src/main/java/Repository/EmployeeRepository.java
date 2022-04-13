@@ -1,6 +1,7 @@
 package Repository;
 
 import Model.EmployeesEntity;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.math.BigDecimal;
@@ -13,4 +14,6 @@ public interface EmployeeRepository extends CrudRepository<EmployeesEntity, Inte
     List<EmployeesEntity> findEmployeesEntitiesByLastNameEndingWith(String a);
     List<EmployeesEntity> findEmployeesEntitiesByDepartmentId(int a);
     List<EmployeesEntity> findEmployeesEntitiesByManagerId(int a);
+    @Query("SELECT a.lastName, a.departmentId, b.departmentName FROM EmployeesEntity a JOIN DepartmentsEntity b ON a.departmentId = b.departmentId JOIN LocationsEntity c ON b.locationId = c.locationId WHERE c.city = ?1")
+    List<Object[]> employeesWorkInToronto(String city);
 }

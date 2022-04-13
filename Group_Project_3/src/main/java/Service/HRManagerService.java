@@ -33,10 +33,6 @@ public class HRManagerService {
         List<EmployeesEntity> listEndsWithA = employeeRepository.findEmployeesEntitiesByLastNameEndingWith("a");
         System.out.println("Employees who's Last Name Ends with A");
         listEndsWithA.forEach(emp-> System.out.println(emp.getFirstName() + " " + emp.getLastName()));
-        //Question 2
-        System.out.println("*************************************************************");
-        System.out.println("Question 3                                                  *");
-        System.out.println("*************************************************************");
         //Question 3
         System.out.println("*************************************************************");
         System.out.println("Question 3                                                  *");
@@ -79,5 +75,19 @@ public class HRManagerService {
         List<Object[]> empInToronto = employeeRepository.employeesWorkInToronto("Toronto");
         System.out.println("Employees Working In Toronto:");
         empInToronto.forEach(emp-> System.out.println(emp[0] + " " + emp[1] + " " + emp[2]));
+        //Question 9
+        System.out.println("*************************************************************");
+        System.out.println("Question 9                                                  *");
+        System.out.println("*************************************************************");
+        List<Object[]> departmentSalary = employeeRepository.averageSalaryByDepartment();
+        System.out.println("Average Salaries Per Department:");
+        departmentSalary.forEach(emp-> System.out.println(emp[0] + " " + emp[1]));
+        //Question 10
+        System.out.println("*************************************************************");
+        System.out.println("Question 10                                                 *");
+        System.out.println("*************************************************************");
+        List<Object[]> managerCount = employeeRepository.employeesUnderManager();
+        System.out.println("Number of Employees Under a Manager:");
+        managerCount.forEach(emp-> System.out.println(emp[0] + " " + emp[1] + " " + emp[2] + " " + emp[3]));
     }
 }
